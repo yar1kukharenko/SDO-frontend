@@ -1,0 +1,1 @@
+export {LabWorkStudent} from './LabWorkStudent';

@@ -1,0 +1,1 @@
+export {FormattingStudent} from './FormattingStudent';

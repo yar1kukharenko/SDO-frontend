@@ -1,0 +1,1 @@
+export {FunctionStudent} from './FunctionStudent';
