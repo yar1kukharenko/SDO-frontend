@@ -1,0 +1,2 @@
+export { LabWorkAdd } from './LabWorkAdd';
+

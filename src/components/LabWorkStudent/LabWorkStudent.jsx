@@ -6,6 +6,8 @@ import { FileUploader } from "react-drag-drop-files";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import StudentCSS from "../../pages/styles/Student.module.css";
 
+// import { TestResults } from ".";
+
 export function LabWorkStudent() {
   const fileTypes = ["py"];
   const [file, setFile] = useState(null);

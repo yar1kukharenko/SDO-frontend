@@ -1,1 +1,1 @@
-export {LabWorkStudent} from './LabWorkStudent';
+export { LabWorkStudent } from './LabWorkStudent';
