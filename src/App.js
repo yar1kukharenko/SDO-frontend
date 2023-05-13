@@ -15,8 +15,8 @@ function App() {
 
       <Routes>
         <Route exact path='/' Component={Home} />
-        <Route exact path='/student' Component={StudentPage} />
-        <Route exact path='/teacher' Component={TeacherPage} />
+        <Route path='/student' Component={StudentPage} />
+        <Route path='/teacher' Component={TeacherPage} />
       </Routes>
     </div>
   )

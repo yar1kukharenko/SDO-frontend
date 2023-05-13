@@ -1,15 +1,15 @@
-import { Button, TextField } from "@material-ui/core";
-import React, { useState } from "react";
+import { Button } from "@material-ui/core";
+import { useState } from "react";
 import { FileUploader } from "react-drag-drop-files";
 import StudentCSS from "../../pages/styles/Student.module.css";
-import FormattingCSS from './FormattingStudent.module.css'
+import FormattingCSS from "./FormattingStudent.module.css";
 
 export function FormattingStudent() {
-    const fileTypes = ["py"];
-    const [file, setFile] = useState(null);
-    const handleChange = (file) => {
-      setFile(file);
-    };
+  const fileTypes = ["py"];
+  const [file, setFile] = useState(null);
+  const handleChange = (file) => {
+    setFile(file);
+  };
   return (
     <section className={StudentCSS.task}>
       <div className={StudentCSS.container}>
@@ -23,7 +23,9 @@ export function FormattingStudent() {
           types={fileTypes}
           required
         />
-        <Button variant="contained" className={StudentCSS.send_button}>Проверить</Button>
+        <Button variant="contained" className={StudentCSS.send_button}>
+          Проверить
+        </Button>
       </div>
     </section>
   );

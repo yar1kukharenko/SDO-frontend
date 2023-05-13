@@ -1,0 +1,88 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+label {
+  font-size: 1.5rem;
+}
+
+.form__functions {
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+}
+
+.form__functions > * {
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+}
+
+.form__task_test {
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+}
+
+.form__FuncName {
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+}
+
+.test_cases {
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+}
+
+.test_cases > * {
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+}
+
+.test_case_input {
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+}
+
+.formulas {
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+}
+.formulas > * {
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+}
+
+.linked_formulas > * {
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+}
+
+.constructions {
+  display: flex;
+  flex-direction: column;
+
+  /* align-items: center; */
+}
+
+.constructions > * {
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+}
+
+.length_checks {
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+}
