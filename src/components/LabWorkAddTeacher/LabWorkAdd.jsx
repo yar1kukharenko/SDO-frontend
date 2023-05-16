@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import LabWorkAddCSS from "./LabWorkAdd.module.css";
 export const LabWorkAdd = () => {
   const [task, setTask] = useState({
-    task_test: "",
+    task_text: "",
     functions: [
       {
         name: "",
@@ -226,14 +226,14 @@ export const LabWorkAdd = () => {
 
   return (
     <form className={LabWorkAddCSS.form} onSubmit={handleSubmit}>
-      <label className={LabWorkAddCSS.form__task_test}>
+      <label className={LabWorkAddCSS.form__task_text}>
         Название теста
         <input
           className={LabWorkAddCSS.input}
           type="text"
-          value={task.task_test}
+          value={task.task_text}
           onChange={(event) =>
-            setTask({ ...task, task_test: event.target.value })
+            setTask({ ...task, task_text: event.target.value })
           }
         />
       </label>
