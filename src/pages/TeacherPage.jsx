@@ -7,8 +7,9 @@ import { useMatchMedia } from "../hooks";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    width: "200px",
-    margin: "0 auto",
+    "& > *": {
+      justifyContent: "center",
+    },
   },
 }));
 

@@ -7,8 +7,9 @@ import StudentCSS from "./styles/Student.module.css";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    width: "150px",
-    margin: "0 auto",
+    "& > *": {
+      justifyContent: "center",
+    },
   },
 }));
 

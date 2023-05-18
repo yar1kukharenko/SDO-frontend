@@ -1,3 +1,4 @@
+import { Alert } from "@mui/material";
 import React, { useState } from "react";
 import LabWorkAddCSS from "./LabWorkAdd.module.css";
 export const LabWorkAdd = () => {
@@ -14,6 +15,7 @@ export const LabWorkAdd = () => {
     constructions: [{ name: "", state: true }],
     length_checks: [{ symbols: 0, rows: 0 }],
   });
+  const [showAlert, setShowAlert] = useState(false);
 
   const handleTestCaseChange = (funcIndex, inputIndex, event) => {
     const { value } = event.target;
@@ -188,6 +190,7 @@ export const LabWorkAdd = () => {
       });
       if (response.ok) {
         console.log("Данные успешно отправлены на сервер");
+        setShowAlert(true);
         console.log(response);
       } else {
         console.log("Ошибка при отправке данных на сервер");
@@ -577,6 +580,16 @@ export const LabWorkAdd = () => {
       <button className={LabWorkAddCSS.button} type="submit">
         Отправить
       </button>
+      {showAlert && (
+        <Alert
+          severity="success"
+          onClose={() => {
+            setShowAlert(false);
+          }}
+        >
+          Данные успешно отправлены
+        </Alert>
+      )}
     </form>
   );
 };

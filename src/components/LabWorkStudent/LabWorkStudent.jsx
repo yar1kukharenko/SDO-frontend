@@ -13,9 +13,9 @@ import { Navbar } from "../Navbar";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    minWidth: "100px",
-    maxWidth: "350px",
-    margin: "0 auto",
+    "& > *": {
+      justifyContent: "center",
+    },
   },
 }));
 
