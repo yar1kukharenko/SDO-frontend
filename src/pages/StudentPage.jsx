@@ -1,12 +1,16 @@
-import { AppBar, Tab, Tabs } from "@material-ui/core";
+import { AppBar, Breadcrumbs, Tab, Tabs, makeStyles } from "@material-ui/core";
 import React, { useState } from "react";
-import { Navbar } from "../components";
-import { FormattingStudent } from "../components/FormattingStudent";
-import { FormulaStudent } from "../components/FormulasStudent";
-import { FunctionStudent } from "../components/FunctionStudent/FunctionStudent";
-import { LabWorkStudent } from "../components/LabWorkStudent";
+import { Link } from "react-router-dom";
+import { LabWatchStudent, Navbar } from "../components";
 import { useMatchMedia } from "../hooks";
 import StudentCSS from "./styles/Student.module.css";
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    width: "150px",
+    margin: "0 auto",
+  },
+}));
 
 const TabPanel = (props) => {
   const { children, value, index } = props;
@@ -14,6 +18,7 @@ const TabPanel = (props) => {
 };
 
 const StudentPage = () => {
+  const styles = useStyles();
   const [value, setValue] = useState(0);
   const handleTabs = (e, val) => {
     setValue(val);
@@ -22,6 +27,7 @@ const StudentPage = () => {
   return (
     <div>
       <Navbar />
+
       <main className={StudentCSS.main}>
         <AppBar position="static">
           {isMobile && (
@@ -29,14 +35,14 @@ const StudentPage = () => {
               value={value}
               onChange={handleTabs}
               variant="scrollable"
-              centered={true}
+              // centered={true}
               // scrollButtons
               // allowScrollButtonsMobile
             >
               <Tab label="Лабораторные работы" />
-              <Tab label="Формулы" />
+              {/* <Tab label="Формулы" />
               <Tab label="Функции" />
-              <Tab label="Форматирование" />
+              <Tab label="Форматирование" /> */}
             </Tabs>
           )}
           {!isMobile && (
@@ -49,16 +55,21 @@ const StudentPage = () => {
               // allowScrollButtonsMobile
             >
               <Tab label="Лабораторные работы" />
-              <Tab label="Формулы" />
+              {/* <Tab label="Формулы" />
               <Tab label="Функции" />
-              <Tab label="Форматирование" />
+              <Tab label="Форматирование" /> */}
             </Tabs>
           )}
         </AppBar>
+        <Breadcrumbs className={styles.root}>
+          <Link to="/">Главная</Link>
+          <Link to="/student">Студент</Link>
+        </Breadcrumbs>
         <TabPanel value={value} index={0}>
-          <LabWorkStudent></LabWorkStudent>
+          {/* <LabWorkStudent></LabWorkStudent> */}
+          <LabWatchStudent />
         </TabPanel>
-        <TabPanel value={value} index={1}>
+        {/* <TabPanel value={value} index={1}>
           <FormulaStudent></FormulaStudent>
         </TabPanel>
         <TabPanel value={value} index={2}>
@@ -66,7 +77,7 @@ const StudentPage = () => {
         </TabPanel>
         <TabPanel value={value} index={3}>
           <FormattingStudent />
-        </TabPanel>
+        </TabPanel> */}
       </main>
     </div>
   );

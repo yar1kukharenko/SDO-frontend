@@ -15,12 +15,6 @@ export const LabWorkAdd = () => {
     length_checks: [{ symbols: 0, rows: 0 }],
   });
 
-  const handleFunctionNameChange = (index, field, value) => {
-    const updatedTask = { ...task };
-    updatedTask.functions[index][field] = value;
-    setTask(updatedTask);
-  };
-
   const handleTestCaseChange = (funcIndex, inputIndex, event) => {
     const { value } = event.target;
     const updatedTask = { ...task };
@@ -203,17 +197,6 @@ export const LabWorkAdd = () => {
     }
   };
 
-  // fetch("http://localhost:8000/tasks")
-  //   .then((response) => response.json())
-  //   .then((data) => {
-  //     // Обработка полученных данных
-  //     console.log(data);
-  //   })
-  //   .catch((error) => {
-  //     // Обработка ошибок
-  //     console.error(error);
-  //   });
-
   const handleSubmit = (event) => {
     event.preventDefault();
     // Отправка задачи на сервер или дальнейшая обработка
@@ -229,6 +212,8 @@ export const LabWorkAdd = () => {
       <label className={LabWorkAddCSS.form__task_text}>
         Название теста
         <input
+          maxLength={1024}
+          required
           className={LabWorkAddCSS.input}
           type="text"
           value={task.task_text}
@@ -244,10 +229,15 @@ export const LabWorkAdd = () => {
           key={`function-${funcIndex}`}
         >
           <h3 className={LabWorkAddCSS.h3}>Функция {funcIndex + 1}</h3>
-          <button className={LabWorkAddCSS.button} onClick={addFunction}>
+          <button
+            type="button"
+            className={LabWorkAddCSS.button}
+            onClick={addFunction}
+          >
             Добавить функцию
           </button>
           <button
+            type="button"
             className={LabWorkAddCSS.button}
             onClick={() => handleRemoveFunction(funcIndex)}
           >
@@ -256,6 +246,7 @@ export const LabWorkAdd = () => {
           <label className={LabWorkAddCSS.form__FuncName}>
             Имя функции:
             <input
+              required
               className={LabWorkAddCSS.input}
               type="text"
               value={func.name}
@@ -276,6 +267,7 @@ export const LabWorkAdd = () => {
                   Тест {inputIndex + 1} Входные данные (через запятую, без
                   пробелов):
                   <input
+                    required
                     className={LabWorkAddCSS.input}
                     type="text"
                     value={testCase.input.join(",")}
@@ -288,6 +280,7 @@ export const LabWorkAdd = () => {
                 <label>
                   Тест {inputIndex + 1} Выходные данные:
                   <input
+                    required
                     className={LabWorkAddCSS.input}
                     type="text"
                     value={testCase.output}
@@ -301,12 +294,14 @@ export const LabWorkAdd = () => {
                   />
                 </label>
                 <button
+                  type="button"
                   className={LabWorkAddCSS.button}
                   onClick={() => addTestCase(funcIndex)}
                 >
                   Добавить тест
                 </button>
                 <button
+                  type="button"
                   className={LabWorkAddCSS.button}
                   onClick={() => handleRemoveTestCase(funcIndex, inputIndex)}
                 >
@@ -324,6 +319,7 @@ export const LabWorkAdd = () => {
                 <label>
                   ID формулы:
                   <input
+                    required
                     className={LabWorkAddCSS.input}
                     type="text"
                     value={formula.id}
@@ -358,6 +354,7 @@ export const LabWorkAdd = () => {
                 <label>
                   Формула:
                   <input
+                    required
                     className={LabWorkAddCSS.input}
                     type="text"
                     value={formula.formula}
@@ -372,12 +369,14 @@ export const LabWorkAdd = () => {
                   />
                 </label>
                 <button
+                  type="button"
                   className={LabWorkAddCSS.button}
                   onClick={() => addFormula(funcIndex)}
                 >
                   Добавить формулу
                 </button>
                 <button
+                  type="button"
                   className={LabWorkAddCSS.button}
                   onClick={() => handleRemoveFormula(funcIndex, formulaIndex)}
                 >
@@ -443,12 +442,14 @@ export const LabWorkAdd = () => {
                 </label>
 
                 <button
+                  type="button"
                   className={LabWorkAddCSS.button}
                   onClick={() => addLinkedFormula(funcIndex)}
                 >
                   Добавить связанные формулы
                 </button>
                 <button
+                  type="button"
                   className={LabWorkAddCSS.button}
                   onClick={() =>
                     handleRemoveLinkedFormula(funcIndex, linkedFormulaIndex)
@@ -500,10 +501,15 @@ export const LabWorkAdd = () => {
                 />
               </label>
             </div>
-            <button className={LabWorkAddCSS.button} onClick={addConstruction}>
+            <button
+              type="button"
+              className={LabWorkAddCSS.button}
+              onClick={addConstruction}
+            >
               Добавить конструкцию
             </button>
             <button
+              type="button"
               className={LabWorkAddCSS.button}
               onClick={() => handleRemoveConstruction(constructionIndex)}
             >
@@ -520,7 +526,7 @@ export const LabWorkAdd = () => {
             key={`length-check-${lengthCheckIndex}`}
           >
             <label>
-              Количество символов:
+              Максимальное количество символов:
               <input
                 className={LabWorkAddCSS.input}
                 type="number"
@@ -536,7 +542,7 @@ export const LabWorkAdd = () => {
             </label>
 
             <label>
-              Количество строк:
+              Максимальное количество строк:
               <input
                 className={LabWorkAddCSS.input}
                 type="number"
@@ -550,10 +556,15 @@ export const LabWorkAdd = () => {
                 }
               />
             </label>
-            <button className={LabWorkAddCSS.button} onClick={addLengthCheck}>
+            <button
+              type="button"
+              className={LabWorkAddCSS.button}
+              onClick={addLengthCheck}
+            >
               Добавить проверку длины
             </button>
             <button
+              type="button"
               className={LabWorkAddCSS.button}
               onClick={() => handleRemoveLengthCheck(lengthCheckIndex)}
             >
