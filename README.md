@@ -1,4 +1,4 @@
-# https://github.com/yar1kukharenko/SDO-frontend.git
+# http://lms.std-2147.ist.mospolytech.ru/
 
 ## Запуск
 
